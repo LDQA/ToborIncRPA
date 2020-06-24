@@ -1,0 +1,7 @@
+Hello {0}
+
+Unfortunatly there has been an error processing your request!
+
+Reason: {1}
+
+Tobor Inc.

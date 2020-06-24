@@ -1,0 +1,6 @@
+{
+
+	valid_subjects: "REGISTER::CHANGE::DELETE",
+	wrong_subject_message: "Subject you have entered was Invalid! Available Subjects: REGISTER, CHANGE or DELETE!"
+
+}
