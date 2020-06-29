@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1857,2852</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1855,1878</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LoadQueue_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -61,7 +61,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LoadQueue" sap:VirtualizedContainerService.HintSize="1274,2647" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LoadQueue" sap:VirtualizedContainerService.HintSize="1107,1673" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="Datatable" />
       <Variable x:TypeArguments="x:Boolean" Name="hasClients" />
@@ -71,48 +71,40 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1232,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="AddToReport.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1065,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="AddToReport.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="ActionArgs">
-          <Literal x:TypeArguments="x:String">Starting To Load Queue</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="StatusArgs">
-          <Literal x:TypeArguments="x:String">Starting...</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="DetailsArgs">
-          <Literal x:TypeArguments="x:String">N/A</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="ProcessSheet">
-          <Literal x:TypeArguments="x:String">Preformance Report (Process 2)</Literal>
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="ActionArgs">Starting To Load Queue</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="StatusArgs">Starting...</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="DetailsArgs">N/A</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="ProcessSheetArgs">Preformance Report (Process 2)</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1232,2428" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Visible="False" WorkbookPath="E:\QA Workspace\SFIA Project 2\Project (UiPath)\ToborInc-Files\Database.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1065,1454" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Visible="False" WorkbookPath="E:\QA Workspace\SFIA Project 2\Project (UiPath)\ToborInc-Files\Database.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="1198,2319" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence sap:VirtualizedContainerService.HintSize="1031,1345" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1156,1873" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="989,899" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ExcelReadRange AddHeaders="True" DataTable="[Datatable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1114,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Customer_Database">
+              <ui:ExcelReadRange AddHeaders="True" DataTable="[Datatable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="947,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Customer_Database">
                 <ui:ExcelReadRange.Range>
                   <InArgument x:TypeArguments="x:String">
                     <Literal x:TypeArguments="x:String" Value="" />
                   </InArgument>
                 </ui:ExcelReadRange.Range>
               </ui:ExcelReadRange>
-              <If Condition="[Datatable.Rows.Count = 0]" sap:VirtualizedContainerService.HintSize="1114,1682" sap2010:WorkflowViewState.IdRef="If_1">
+              <If Condition="[Datatable.Rows.Count = 0]" sap:VirtualizedContainerService.HintSize="947,708" sap2010:WorkflowViewState.IdRef="If_1">
                 <If.Then>
                   <Sequence sap:VirtualizedContainerService.HintSize="376,410" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <sap:WorkflowViewStateService.ViewState>
@@ -140,7 +132,7 @@
                         <InArgument x:TypeArguments="x:String" x:Key="DetailsArgs">
                           <Literal x:TypeArguments="x:String">Failed to find any Clients to add to Queue</Literal>
                         </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="ProcessSheet">
+                        <InArgument x:TypeArguments="x:String" x:Key="ProcessSheetArgs">
                           <Literal x:TypeArguments="x:String">Preformance Report (Process 2)</Literal>
                         </InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
@@ -148,19 +140,19 @@
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[Datatable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="693,1535" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[Datatable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="526,561" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                     <ui:ForEachRow.Body>
                       <ActivityAction x:TypeArguments="sd:DataRow">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="643,1388" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,414" sap2010:WorkflowViewState.IdRef="Sequence_4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="601,1296" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,322" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                             <TryCatch.Variables>
                               <Variable x:TypeArguments="x:String" Name="UserEmail" />
                               <Variable x:TypeArguments="x:String" Name="UserFirstName" />
@@ -260,7 +252,7 @@
                                           <InArgument x:TypeArguments="x:String" x:Key="DetailsArgs">
                                             <Literal x:TypeArguments="x:String">User has been added to Send_Email Queue</Literal>
                                           </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="ProcessSheet">
+                                          <InArgument x:TypeArguments="x:String" x:Key="ProcessSheetArgs">
                                             <Literal x:TypeArguments="x:String">Preformance Report (Process 2)</Literal>
                                           </InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
@@ -286,10 +278,10 @@
                               </Sequence>
                             </TryCatch.Try>
                             <TryCatch.Catches>
-                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="567,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,160" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
@@ -309,7 +301,7 @@
                 </If.Else>
               </If>
             </Sequence>
-            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1156,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="AddToReport.xaml">
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="989,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="AddToReport.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="ActionArgs">
                   <Literal x:TypeArguments="x:String">Loaded Queue</Literal>
@@ -320,13 +312,13 @@
                 <InArgument x:TypeArguments="x:String" x:Key="DetailsArgs">
                   <Literal x:TypeArguments="x:String">Queue process has been compleated</Literal>
                 </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="ProcessSheet">
+                <InArgument x:TypeArguments="x:String" x:Key="ProcessSheetArgs">
                   <Literal x:TypeArguments="x:String">Preformance Report (Process 2)</Literal>
                 </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:ExcelWriteRange AddHeaders="False" DataTable="[Datatable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="1156,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Customer_Database" StartingCell="A2" />
-            <Assign sap:VirtualizedContainerService.HintSize="1156,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <ui:ExcelWriteRange AddHeaders="False" DataTable="[Datatable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="989,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Customer_Database" StartingCell="A2" />
+            <Assign sap:VirtualizedContainerService.HintSize="989,60" sap2010:WorkflowViewState.IdRef="Assign_4">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Boolean">[hasClientsArgs]</OutArgument>
               </Assign.To>
