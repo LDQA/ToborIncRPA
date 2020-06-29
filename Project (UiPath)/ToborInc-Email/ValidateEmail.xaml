@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1872,1540</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1855,1789</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateEmail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -34,7 +34,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -56,19 +56,16 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ValidateEmail" sap:VirtualizedContainerService.HintSize="917,1335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ValidateEmail" sap:VirtualizedContainerService.HintSize="917,1584" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="allEmails" />
       <Variable x:TypeArguments="x:String" Name="Subjects" />
       <Variable x:TypeArguments="x:String" Name="ErrorReason" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="SubjectsList" />
-      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="allValidEmails">
-        <Variable.Default>
-          <mva:VisualBasicValue x:TypeArguments="scg:List(snm:MailMessage)" ExpressionText="new List(Of MailMessage)" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Default="[new List(Of MailMessage)]" Name="allValidEmails" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -77,22 +74,14 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="875,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="getConfigValue.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="valReqArgs">
-          <Literal x:TypeArguments="x:String">valid_subjects</Literal>
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="ReqValueArgs">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="Subjects" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="valReqArgs">valid_subjects</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="ReqValueArgs">[Subjects]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="875,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="getConfigValue.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="valReqArgs">
-          <Literal x:TypeArguments="x:String">wrong_subject_message</Literal>
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="ReqValueArgs">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ErrorReason" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="valReqArgs">wrong_subject_message</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="ReqValueArgs">[ErrorReason]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <Assign sap:VirtualizedContainerService.HintSize="875,60" sap2010:WorkflowViewState.IdRef="Assign_1">
@@ -111,32 +100,64 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[Split(Subjects, "::").ToList]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="875,689" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[allEmails]">
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="875,938" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[allEmails]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="839,554" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="839,804" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[SubjectsList.Contains(item.Subject.ToUpper)]" sap:VirtualizedContainerService.HintSize="797,462" sap2010:WorkflowViewState.IdRef="If_1">
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="AddToReport.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="ActionArgs">
+                  <Literal x:TypeArguments="x:String">Email Request</Literal>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="StatusArgs">
+                  <Literal x:TypeArguments="x:String">Starting...</Literal>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="DetailsArgs">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Validating Email (Stage 1) From: &quot; + item.Sender.Address.ToString" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="ProcessSheetArgs">
+                  <Literal x:TypeArguments="x:String">Preformance Report (Process 1)</Literal>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <If Condition="[SubjectsList.Contains(item.Subject.ToUpper)]" sap:VirtualizedContainerService.HintSize="797,585" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,247" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <AddToCollection x:TypeArguments="snm:MailMessage" Collection="[allValidEmails]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[item]" />
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;[&quot; + DateTime.Now.ToString + &quot;] Email: &quot; + item.Sender.Address.ToString + &quot; has passed Validation 1. Moving to Validation 2.&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Email: &quot; + item.Sender.Address.ToString + &quot; has passed Validation 1. Moving to Validation 2.&quot;]" />
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="AddToReport.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="ActionArgs">
+                        <Literal x:TypeArguments="x:String">Email Request</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="StatusArgs">
+                        <Literal x:TypeArguments="x:String">Successful</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="DetailsArgs">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Validating Email (Stage 1) From: &quot; + item.Sender.Address.ToString" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="ProcessSheetArgs">
+                        <Literal x:TypeArguments="x:String">Preformance Report (Process 1)</Literal>
+                      </InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,312" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="376,437" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -144,15 +165,27 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SendErrorEmail.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="snm:MailMessage" x:Key="mailMessageArgs">
-                        <mva:VisualBasicValue x:TypeArguments="snm:MailMessage" ExpressionText="item" />
+                      <InArgument x:TypeArguments="snm:MailMessage" x:Key="mailMessageArgs">[item]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="ReasonArgs">[ErrorReason]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Email: &quot; + item.Sender.Address + &quot; has failed Validation 1 (Invalid Subject)&quot;]" />
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="AddToReport.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="ActionArgs">
+                        <Literal x:TypeArguments="x:String">Email Request</Literal>
                       </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="ReasonArgs">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ErrorReason" />
+                      <InArgument x:TypeArguments="x:String" x:Key="StatusArgs">
+                        <Literal x:TypeArguments="x:String">Buisness (Failed)</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="DetailsArgs">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Validating Email (Stage 1) From: &quot; + item.Sender.Address.ToString + &quot; Failed due to invalid Subject&quot;" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="ProcessSheetArgs">
+                        <Literal x:TypeArguments="x:String">Preformance Report (Process 1)</Literal>
                       </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;[&quot; + DateTime.Now.ToString + &quot;] Email: &quot; + item.Sender.Address + &quot; has failed Validation 1 (Invalid Subject)&quot;]" />
                 </Sequence>
               </If.Else>
             </If>
