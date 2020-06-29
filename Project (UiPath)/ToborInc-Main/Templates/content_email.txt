@@ -1,0 +1,7 @@
+Hello {0}
+
+Here are some snippites of todays Articles! 
+
+{1}
+
+Tobor Inc.

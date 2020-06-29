@@ -1,0 +1,5 @@
+{
+
+	send_end_of_day_report: "toborautomator@gmail.com"
+	
+}
