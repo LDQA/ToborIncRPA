@@ -1,6 +1,12 @@
 {
 
+	email_account: "ToborInc@outlook.com",
 	valid_subjects: "REGISTER::CHANGE::DELETE",
-	wrong_subject_message: "Subject you have entered was Invalid! Available Subjects: REGISTER, CHANGE or DELETE!"
+	user_already_exitis_database: "You seem to already exisit in the Database!",
+	user_deleted: "You have been successfully deleted from the database",
+	wrong_subject_message: "Subject you have entered was Invalid! Available Subjects: REGISTER, CHANGE or DELETE!",
+	invalid_interval: "The Interval you have entered is Invalid! Only one available Weekdays/Daily",
+	success_registration: "You have been successfully registered!",
+	invalid_fields: "Some fields seem to be empty/wrong!"
 
 }

@@ -3,12 +3,12 @@
     <x:Property Name="UserDateArgs" Type="InArgument(x:String)" />
     <x:Property Name="UserIntervalArgs" Type="InArgument(x:String)" />
     <x:Property Name="ValidDateArgs" Type="OutArgument(x:Boolean)" />
-    <x:Property Name="NewDate" Type="OutArgument(x:String)" />
+    <x:Property Name="NewDate" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1863,1119</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1855,1079</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CheckDate_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">

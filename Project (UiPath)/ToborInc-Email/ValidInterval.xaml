@@ -1,13 +1,13 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ValidInterval" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="UserInterval" Type="InArgument(x:String)" />
-    <x:Property Name="IsValid" Type="InArgument(x:Boolean)" />
-    <x:Property Name="DateNeeded" Type="InArgument(x:String)" />
+    <x:Property Name="IsValid" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="DateNeeded" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1863,1004</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1855,1003</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidInterval_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -59,7 +59,7 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ValidInterval" sap:VirtualizedContainerService.HintSize="539,374" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ValidInterval" sap:VirtualizedContainerService.HintSize="539,672" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="UsrInterval" />
       <Variable x:TypeArguments="x:String" Name="NewDate" />
@@ -77,7 +77,7 @@
         <InArgument x:TypeArguments="x:String">[UserInterval]</InArgument>
       </Assign.Value>
     </Assign>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[UsrInterval]" sap:VirtualizedContainerService.HintSize="497,182" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[UsrInterval]" sap:VirtualizedContainerService.HintSize="497,480" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
         <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
           <Assign.To>
@@ -111,7 +111,7 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence x:Key="Daily" sap:VirtualizedContainerService.HintSize="304,246" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence x:Key="Daily" sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
